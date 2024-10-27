@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система учёта учебных заданий</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqk1w2/knoG80k332iY40ynbrm/meQz+l//s+BYJmxTEg5+C0/01jH6Cnv8gyo8+MmnZ87Liy" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Система учёта учебных заданий</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="add-task">
+                <h2>Добавить задание</h2>
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-name">Название задания:</label>
+                        <input type="text" id="task-name" name="task-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-description">Описание задания:</label>
+                        <textarea id="task-description" name="task-description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-deadline">Срок сдачи:</label>
+                        <input type="date" id="task-deadline" name="task-deadline">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-priority">Приоритет:</label>
+                        <select id="task-priority" name="task-priority">
+                            <option value="низкий">Низкий</option>
+                            <option value="средний" selected>Средний</option>
+                            <option value="высокий">Высокий</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-category">Категория:</label>
+                        <select id="task-category" name="task-category">
+                            <option value="Личное" selected>Личное</option>
+                            <option value="Работа">Работа</option>
+                            <option value="Учеба">Учеба</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-file">Прикрепить файл:</label>
+                        <input type="file" id="task-file" name="task-file">
+                    </div>
+
+                    <button type="submit">Добавить <i class="fas fa-plus"></i></button>
+                </form>
+            </section>
+
+            <section id="task-list">
+                <h2>Список заданий</h2>
+                <ul id="tasks">
+                    <!-- Задания будут добавлены сюда -->
+                </ul>
+            </section>
+
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="filter-status">Фильтр по статусу:</label>
+                    <select id="filter-status" name="filter-status">
+                        <option value="all" selected>Все</option>
+                        <option value="completed">Завершенные</option>
+                        <option value="pending">Незавершенные</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-category">Фильтр по категории:</label>
+                    <select id="filter-category" name="filter-category">
+                        <option value="all" selected>Все</option>
+                        <option value="Личное">Личное</option>
+                        <option value="Работа">Работа</option>
+                        <option value="Учеба">Учеба</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-priority">Фильтр по приоритету:</label>
+                    <select id="filter-priority" name="filter-priority">
+                        <option value="all" selected>Все</option>
+                        <option value="низкий">Низкий</option>
+                        <option value="средний">Средний</option>
+                        <option value="высокий">Высокий</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-date">Фильтр по дате:</label>
+                    <select id="filter-date" name="filter-date">
+                        <option value="all" selected>Все</option>
+                        <option value="today">Сегодня</option>
+                        <option value="tomorrow">Завтра</option>
+                        <option value="this-week">На этой неделе</option>
+                        <option value="next-week">На следующей неделе</option>
+                    </select>
+                </div>
+            </div>
+
+            <section id="calendar-section">
+                <h2>Календарь заданий</h2>
+                <div id="calendar"></div> 
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; ГАПОУ НИТ 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
